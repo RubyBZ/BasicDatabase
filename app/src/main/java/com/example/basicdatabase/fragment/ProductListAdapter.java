@@ -42,15 +42,22 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int listPosition) {
-        TextView item = holder.item;
-        item.setText(productList.get(listPosition).getName());
+        TextView itemName = holder.itemName;
+        TextView itemQuantity = holder.itemQuantity;
+
+        itemName.setText(productList.get(listPosition).getName());
+        itemQuantity.setText(String.valueOf(productList.get(listPosition).getQuantity()));
+
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView item;
+        TextView itemName;
+        TextView itemQuantity;
+
         ViewHolder(View itemView) {
             super(itemView);
-            item = itemView.findViewById(R.id.product_row);
+            itemName = itemView.findViewById(R.id.product_name_row);
+            itemQuantity = itemView.findViewById(R.id.product_quantity_row);
         }
     }
 
